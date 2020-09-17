@@ -1,109 +1,101 @@
 from flask import Flask,request,jsonify
 app=Flask(__name__)
-event_list=[{'event': 'Webinar on Aerospace',
+event_list=[{'event': 'Webinar on Computer Science as future',
                    'presenter':'Mr.Anandh Jogi',
                    'place':'Memorial hall,Jeppu',
                    'date':'14/01/2021',
                    'time':'9:30'},
-                    {'event':'Workshop on git',
-                     'presenter':'Mr.Vinod Gowda',
-                     'place':'Father Fred hall,Mangalore',
-                     'date':'24/01/2021',
-                     'time':'11:30'},
-                   {'event': 'Tedx Talk',
-                   'presenter':'Mr.Hithesh Kumar',
-                   'place':'Conference Hall,Vamanjoor',
-                   'date':'20/02/2021',
-                   'time':'20:00'},
-                    {'event':'Webinar to AI',
+                    {'event':'Webinar on AI',
                      'presenter':'Mr.Rahul',
                      'place':'Memorial  Hall,Jeppu',
                      'date':'28/03/2021',
                      'time':'10:30'},
-                  {'event': 'IEEE Meeting for IEEE members',
-                  'presenter':'Ms.Smriti Rai',
-                  'place':'Conference hall,Vamanjoor',
-                  'date':'02/04/2021',
-                  'time':'11:00'},
-                  {'event':'Webinar on BigData',
-                   'presenter':'Mr.Anush Tripal',
-                   'place':'Silver Bells,Mangalore',
-                   'date':'11/05/2021',
-                   'time':'9:00'},
-                  {'event': 'Workshop on AWS',
-                   'presenter':'Ms.Revati',
-                   'place':'TMA Pai,Mangalore',
-                   'date':'21/06/2021',
-                   'time':'9:30'},
                     {'event':'Webinar on DataScience',
                      'presenter':'Ms.Shivani Singh',
                      'place':"Memorial Hall,Jeppu",
                      'date':'24/07/2021',
                      'time':'10:30'},
-                    {'event':'Workshop on Cyber Security',
-                     'presenter':'Mr.Ananth Prabhu',
-                     'place':'Kudmul Rangarao Town Hall,Mangalore',
-                     'date':'24/08/2021',
-                     'time':'16:30'},
-                   {'event': "Talk on 'The Greatest machine that never was'",
-                   'presenter':'Ms.Amulya Shetty',
-                    'place':'Father Fred hall,Mangalore',
-                   'date':'12/09/2021',
-                   'time':'10:00'},
-                    {'event':'Webinar on Digital Transformation',
-                     'presenter':'Mr.Suraj Rao',
-                     'place':'Infosys,Mangalore',
-                     'date':'24/07/2021',
-                     'time':'9:00'},
-                   {'event': 'Webinar on Placements2020',
-                   'presenter':'Mr.Ananth',
-                   'place':'Conference Hall,Mangalore',
-                   'date':'11/04/2021',
-                   'time':'12:30'},
                     {'event':'Workshop on Cloud Computing',
                      'presenter':'Mr.Rohan Gowda',
                      'place':'Father Fred hall,Mangalore',
                      'date':'25/05/2021',
-                     'time':'13:30'},
-                   {'event': 'Workshop on RC Aircraft Design',
-                   'presenter':'Mr.Ananth Shetty',
-                   'place':'Memorial hall,Jeppu',
-                   'date':'1/11/2021',
-                   'time':'10:30'},
-                    {'event':'Workshop on 3D Printing',
-                     'presenter':'Mr.Vinod Poojary',
-                     'place':'Father Fred hall,Mangalore',
-                     'date':'29/12/2021',
-                     'time':'11:30'},
-                   {'event': "Talk on 'Sanitation is the basic human right'",
-                   'presenter':'Ms.Rohan Shetty',
-                   'place':'Town Hall,Mangalore',
-                   'date':'12/06/2021',
-                   'time':'10:00'},
-                    {'event':'Workshop on Hovercraft',
-                     'presenter':'Mr.Vignesh Prasad',
-                     'place':'Father Fred hall,Mangalore',
-                     'date':'24/03/2021',
-                     'time':'11:30'},
-                    {'event':'Webinar on Renewable energy',
-                     'presenter':'Mr.Suraj Rai',
-                     'place':'Conference Hall,Vamanjoor',
-                     'date':'24/08/2021',
-                     'time':'11:30'},
-                    {'event': 'Webinar on Detterence',
-                   'presenter':'Mr.Nithesh Jogi',
-                   'place':'Memorial hall,Jeppu',
-                   'date':'14/10/2021',
-                   'time':'9:30'},
-                    {'event':'Webinar on Magnetic Materials',
-                     'presenter':'Ms.Amitha',
-                     'place':'Father Fred hall,Mangalore',
-                     'date':'24/12/2021',
-                     'time':'11:30'}]
+                     'time':'13:30'}]
+quiz_list=[[{'Qno':1,
+                 'Question':'Which among the following is not a computer language',
+                 'option A':'ALGOL',
+                 'option B':'COBOL',
+                 'option C':'PASCAL',
+                 'option D':'DRAM'},
+                 {'Qno':2,
+                  'Question':'Which among the following is used in creating a chart',
+                 'option A':'Chart Wizard',
+                 'option B':'Computing Wizard',
+                 'option C':'Calculating Wizard',
+                 'option D':'Data Wizard'},
+                 {'Qno':3,
+                  'Question':'Which among the following is a communication system that transfers data between components inside a computer',
+                 'option A':'Bus',
+                 'option B':'RAM',
+                 'option C':'Processor',
+                 'option D':'LAN'}],
+                 [{'Qno':1,
+                 'Question':'KEE is a product of',
+                 'option A':'IntelliCorpn',
+                 'option B':'Teknowledge',
+                 'option C':'Texas Instruments',
+                 'option D':'Tech Knowledge'},
+                 {'Qno':2,
+                  'Question':'Default reasoning is another type of',
+                 'option A':'Analogical reasoning',
+                  'option B':'Bitonic reasoning',
+                 'option C':'Non-monotonic reasoning',
+                 'option D':'Monotonic reasoning'},
+                 {'Qno':3,
+                     'Question':'If a robot can alter its own trajectory in response to external conditions,it is considered to be:',
+                 'option A':'mobile',
+                 'option B':'open loop',
+                 'option C':'intelligent',
+                 'option D':'non-servo'}],
+                 [{'Qno':1,
+                 'Question':'Point out the correct statement',
+                 'option A':'Raw data is original source of data',
+                 'option B':'Preprocessed data is original source of data',
+                 'option C':'Raw data is the data obtained after processing steps',
+                 'option D':'None of the mentioned'},
+                 {'Qno':2,
+                  'Question':'Which of the following is performed by Data Scientist',
+                 'option A':'Define the question',
+                 'option B':'Create reproducible code',
+                 'option C':'Challenge results',
+                 'option D':'All of the mentioned'},
+                 {'Qno':3,
+                     'Question':'Which of the following is the most important language for Data Science',
+                 'option A':'Java',
+                 'option B':'Ruby',
+                 'option C':'R',
+                 'option D':'None of the mentioned'}],
+                 [{'Qno':1,
+                 'Question':'Which of the following is essential concept related to Cloud',
+                 'option A':'Reliability',
+                 'option B':'Productivity',
+                 'option C':'Abstraction',
+                 'option D':'All of the mentioned'},
+                 {'Qno':2,
+                  'Question':'Point out the wrong statement',
+                 'option A':'All applications benefit from deployment in the cloud',
+                 'option B':'With cloud computing,you can start very small and become very big very fast',
+                 'option C':'Cloud computing is revolutionary,even if the technology it is built on is evolutionary',
+                 'option D':'None of the mentioned'},
+                 {'Qno':3,
+                     'Question':'Which of the following cloud concept is related to pooling and sharing of resources',
+                 'option A':'Polymorphism',
+                 'option B':'Abstraction',
+                 'option C':'Virtualization',
+                 'option D':'None of the mentioned'}]]
 @app.route('/events', methods=['GET','POST'])
 def events():
     if request.method =='GET':
-        if len(event_list)>0:
+       if len(event_list)>0:
             return jsonify(event_list)
         else:
             'Nothing Found',404
@@ -160,3 +152,35 @@ def one_event(event):
             if eve['event']==event:
                 event_list.pop(index)
                 return jsonify(event_list)
+
+@app.route('/events/quiz/<event>',methods=['GET','POST'])
+def quiz(event):
+    if request.method=='GET':
+        i=0
+        for eve in event_list:
+            i=i+1
+            if eve['event']==event:
+                return jsonify(quiz_list[i])
+
+    if request.method=='POST':
+       ans1=request.form['ans1']
+       ans2=request.form['ans2']
+       ans3=request.form['ans3']
+       yes='Congratulations!You are ready to attend '+event
+       no='Sorry..:(,You are not ready to attend '+event+'. Please go through the basics of the concept before attending the webinar.'
+       if event=='Webinar on Computer Science as future':
+           if ans1=='option D' and ans2=='option A' and ans3=='option A':
+               return yes
+           return no
+       if event=='Webinar on AI':
+           if ans1=='option A' and ans2=='option C' and ans3=='option C':
+               return yes
+           return no
+       if event=='Webinar on Data Science':
+           if ans1=='option A' and ans2=='option D' and ans3=='option C':
+               return yes
+           return no
+       if event=='Workshop on Cloud Computing':
+           if ans1=='option C' and ans2=='option A' and ans3=='option C':
+               return yes
+           return no
